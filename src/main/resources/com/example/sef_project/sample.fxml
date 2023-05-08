@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.Controller">
+   <children>
+      <AnchorPane prefHeight="402.0" prefWidth="221.0" style="-fx-background-color: yellow;">
+         <children>
+            <ImageView fitHeight="206.0" fitWidth="191.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/picture1.jpg" />
+               </image></ImageView>
+            <Label layoutX="58.0" layoutY="286.0" prefHeight="17.0" prefWidth="85.0" text="phone number" />
+            <Label layoutX="56.0" layoutY="337.0" prefHeight="24.0" prefWidth="85.0" text="     application" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="402.0" prefWidth="406.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <children>
+            <ImageView fitHeight="140.0" fitWidth="151.0" layoutX="130.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/picture2.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="62.0" layoutY="227.0" prefHeight="24.0" prefWidth="70.0" text="Username" />
+
+            <Label layoutX="60.0" layoutY="277.0" prefHeight="24.0" prefWidth="70.0" text="Password" />
+            <TextField fx:id="tf_username" layoutX="144.0" layoutY="223.0" prefHeight="32.0" prefWidth="215.0" />
+            <TextField fx:id="tf_password" layoutX="144.0" layoutY="273.0" prefHeight="32.0" prefWidth="215.0" />
+            <Button fx:id="button_login" layoutX="174.0" layoutY="322.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: yellow;" text="Login" />
+            <Label layoutX="138.0" layoutY="360.0" prefHeight="17.0" prefWidth="94.0" text="Not a user?" />
+            <Button fx:id="button_sign_up" layoutX="226.0" layoutY="356.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#21056f" underline="true" />
+         </children></AnchorPane>
+   </children>
+</HBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.SignUpController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow;">
+         <children>
+            <ImageView fitHeight="130.0" fitWidth="144.0" layoutX="33.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/picture1.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="225.0" prefHeight="17.0" prefWidth="88.0" text="phone number" />
+            <Label layoutX="63.0" layoutY="281.0" prefHeight="17.0" prefWidth="64.0" text="application" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="401.0">
+         <children>
+            <Label layoutX="15.0" layoutY="62.0" prefHeight="17.0" prefWidth="72.0" text="Username" />
+            <Label layoutX="15.0" layoutY="98.0" prefHeight="17.0" prefWidth="64.0" text="Password" />
+            <TextField fx:id="tf_username" layoutX="87.0" layoutY="58.0" />
+            <TextField fx:id="tf_password" layoutX="87.0" layoutY="94.0" />
+            <Label layoutX="127.0" layoutY="166.0" prefHeight="17.0" prefWidth="149.0" text="Favorite Youtube channel" />
+            <RadioButton fx:id="rb_therapist" layoutX="149.0" layoutY="200.0" mnemonicParsing="false" text="therapist" />
+            <RadioButton fx:id="rb_pacient" layoutX="149.0" layoutY="237.0" mnemonicParsing="false" text="pacient" />
+            <Button fx:id="button_signup" layoutX="157.0" layoutY="282.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Sign up" />
+            <Label layoutX="100.0" layoutY="340.0" prefHeight="17.0" prefWidth="142.0" text="Already a member?" />
+            <Button fx:id="button_log_in" layoutX="185.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Log In!" textFill="#0d0870" underline="true" />
+         </children></AnchorPane>
+   </children>
+</HBox>
