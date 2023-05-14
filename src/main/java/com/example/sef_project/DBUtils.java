@@ -1,11 +1,15 @@
 package com.example.sef_project;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -47,7 +51,7 @@ public class DBUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_fx", "root", "alexandra");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", "");
             psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
             psCheckUserExists.setString(1, username);
             resultSet = psCheckUserExists.executeQuery();
@@ -110,7 +114,7 @@ public class DBUtils {
         ResultSet resultSet = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_fx", "root", "alexandra");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", "");
             preparedStatement = connection.prepareStatement("SELECT password, app_role FROM users WHERE username =?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
@@ -164,5 +168,57 @@ public class DBUtils {
                 }
             }
         }
+    }
+
+    public void table(Stage primaryStage) {
+        TableView<Object> tableView = new TableView<>();
+
+        // Establish the database connection
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", ")) {
+            Statement statement = connection.createStatement();
+
+             // Retrieve data from the database
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+
+             // Get column names
+             String[] columnNames = getColumnNames(resultSet);
+
+            // Create table columns dynamically
+            for (int i = 0; i < columnNames.length; i++) {
+                final int columnIndex = i;
+                TableColumn<String[], String> tableColumn = new TableColumn<>(columnNames[i]);
+                tableColumn.setCellValueFactory(cellData -> {
+                    String cellValue = cellData.getValue()[columnIndex];
+                    return new SimpleStringProperty(cellValue);
+                });
+                tableView.getColumns().add(tableColumn);
+            }
+
+            // Populate the table with data
+            while (resultSet.next()) {
+                String[] rowData = new String[columnNames.length];
+                for (int i = 0; i < columnNames.length; i++) {
+                    rowData[i] = resultSet.getString(i + 1);
+                }
+                tableView.getItems().add(rowData);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        VBox vbox = new VBox(tableView);
+        Scene scene = new Scene(vbox);
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private String[] getColumnNames(ResultSet resultSet) throws SQLException {
+        int columnCount = resultSet.getMetaData().getColumnCount();
+        String[] columnNames = new String[columnCount];
+        for (int i = 0; i < columnCount; i++) {
+            columnNames[i] = resultSet.getMetaData().getColumnLabel(i + 1);
+        }
+        return columnNames;
     }
 }

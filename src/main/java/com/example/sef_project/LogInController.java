@@ -3,12 +3,20 @@ package com.example.sef_project;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.EventObject;
 import java.util.ResourceBundle;
+
 
 public class LogInController implements Initializable {
 
@@ -32,9 +40,15 @@ public class LogInController implements Initializable {
         });
     }
 
-        public void setUserInformation(String username, String app_role) {
-            label_welcome.setText("Welcome " + username + "!");
-            label_fav_channel.setText("Your role is " + app_role + "!");
+        public void setUserInformation(String username, String app_role) throws IOException {
+            if(app_role.equals("pacient")) {
+                label_welcome.setText("Welcome " + username + "!");
+                label_fav_channel.setText("Pacient");
+            }
+            else {
+                label_welcome.setText("Welcome " + username + "!");
+                label_fav_channel.setText("Therapist");
+            }
         }
 
 }
