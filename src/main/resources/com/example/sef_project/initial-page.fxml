@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.InitialPage">
+   <children>
+      <AnchorPane layoutY="86.0" prefHeight="300.0" prefWidth="300.0">
+         <children>
+            <Label layoutX="86.0" layoutY="181.0" prefHeight="43.0" prefWidth="125.0" text="Log into your account:" />
+            <Button fx:id="b_login" layoutX="115.0" layoutY="237.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Log In" />
+            <ImageView fitHeight="127.0" fitWidth="104.0" layoutX="91.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/login.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane layoutX="300.0" layoutY="86.0" prefHeight="300.0" prefWidth="300.0">
+         <children>
+            <Label layoutX="86.0" layoutY="181.0" prefHeight="43.0" prefWidth="125.0" text="Create a new account:" />
+            <Button fx:id="b_signup" layoutX="115.0" layoutY="237.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Sign up" />
+            <ImageView fitHeight="127.0" fitWidth="104.0" layoutX="91.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/signup.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <Label layoutX="225.0" layoutY="39.0" prefHeight="17.0" prefWidth="155.0" text="Welcome to Brain Harmony!" />
+      <Label layoutX="207.0" layoutY="69.0" prefHeight="17.0" prefWidth="188.0" text="Where your mental health matters!" />
+   </children>
+</AnchorPane>

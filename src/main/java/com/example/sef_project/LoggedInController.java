@@ -29,7 +29,7 @@ public class LoggedInController implements Initializable {
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sample.fxml", "Log In!", null, null);
+                DBUtils.changeScene(event, "log-in.fxml", "Log In!", null, null);
             }
         });
     }

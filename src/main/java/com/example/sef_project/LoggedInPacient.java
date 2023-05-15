@@ -37,7 +37,7 @@ public class LoggedInPacient implements Initializable {
         b_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sample.fxml", "Log In!", null, null);
+                DBUtils.changeScene(event, "log-in.fxml", "Log In!", null, null);
             }
         });
     }
