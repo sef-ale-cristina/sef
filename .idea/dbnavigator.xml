@@ -5,7 +5,12 @@
     <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
-
+  <component name="DBNavigator.Project.DatabaseBrowserManager">
+    <autoscroll-to-editor value="false" />
+    <autoscroll-from-editor value="true" />
+    <show-object-properties value="true" />
+    <loaded-nodes />
+  </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bb496f86-a7f9-4ea4-93a3-1aebe89f6432">
       <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
@@ -20,7 +25,10 @@
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
-
+  <component name="DBNavigator.Project.ObjectQuickFilterManager">
+    <last-used-operator value="EQUAL" />
+    <filters />
+  </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
       <connection id="bb496f86-a7f9-4ea4-93a3-1aebe89f6432" active="true" signed="true">
