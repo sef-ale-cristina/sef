@@ -1,15 +1,11 @@
 package com.example.sef_project;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -25,7 +21,7 @@ public class DBUtils {
             try {
                 FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
-                LogInController loggedInController = loader.getController();
+                LoggedInController loggedInController = loader.getController();
                 loggedInController.setUserInformation(username, app_role);
             } catch(IOException e) {
                 e.printStackTrace();
@@ -131,7 +127,13 @@ public class DBUtils {
                     String retrievedChannel = resultSet.getString("app_role");
 
                     if(retrievedPassword.equals(password)) {
-                        changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        //changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        if(retrievedChannel.equals("pacient")) {
+                            changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        }
+//                        else {
+//                            changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, retrievedChannel);
+//                        }
                     }
                     else {
                         System.out.println("Passwords did not match!");
