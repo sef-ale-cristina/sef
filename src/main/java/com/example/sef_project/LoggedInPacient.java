@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,5 +40,9 @@ public class LoggedInPacient implements Initializable {
                 DBUtils.changeScene(event, "sample.fxml", "Log In!", null, null);
             }
         });
+    }
+
+    public void setUserInformation(String username, String app_role) throws IOException {
+        label_welcome.setText("Welcome, " + username + "!");
     }
 }

@@ -21,8 +21,14 @@ public class DBUtils {
             try {
                 FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
-                LoggedInController loggedInController = loader.getController();
-                loggedInController.setUserInformation(username, app_role);
+                if(app_role.equals("pacient")) {
+                    LoggedInPacient loggedInPAcient = loader.getController();
+                    loggedInPAcient.setUserInformation(username, app_role);
+                }
+                else {
+                    LoggedInTherapist loggedInTherapist = loader.getController();
+                    //loggedInTherapist.setUserInformation(username, app_role);
+                }
             } catch(IOException e) {
                 e.printStackTrace();
             }
@@ -124,16 +130,15 @@ public class DBUtils {
             else {
                 while(resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
-                    String retrievedChannel = resultSet.getString("app_role");
+                    String retrievedAppRole = resultSet.getString("app_role");
 
                     if(retrievedPassword.equals(password)) {
-                        //changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
-                        if(retrievedChannel.equals("pacient")) {
-                            changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        if(retrievedAppRole.equals("pacient")) {
+                            changeScene(event, "logged-in-pacient.fxml", "Welcome!", username, retrievedAppRole);
                         }
-//                        else {
-//                            changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, retrievedChannel);
-//                        }
+                        else {
+                            changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, retrievedAppRole);
+                        }
                     }
                     else {
                         System.out.println("Passwords did not match!");
