@@ -27,7 +27,7 @@ public class DBUtils {
                 }
                 else {
                     LoggedInTherapist loggedInTherapist = loader.getController();
-                    //loggedInTherapist.setUserInformation(username, app_role);
+                    loggedInTherapist.setUserInformation(username, app_role);
                 }
             } catch(IOException e) {
                 e.printStackTrace();
