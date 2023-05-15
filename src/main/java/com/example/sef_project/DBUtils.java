@@ -1,15 +1,11 @@
 package com.example.sef_project;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -25,7 +21,7 @@ public class DBUtils {
             try {
                 FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
-                LogInController loggedInController = loader.getController();
+                LoggedInController loggedInController = loader.getController();
                 loggedInController.setUserInformation(username, app_role);
             } catch(IOException e) {
                 e.printStackTrace();
@@ -131,7 +127,13 @@ public class DBUtils {
                     String retrievedChannel = resultSet.getString("app_role");
 
                     if(retrievedPassword.equals(password)) {
-                        changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        //changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        if(retrievedChannel.equals("pacient")) {
+                            changeScene(event, "logged-in.fxml", "Welcome!", username, retrievedChannel);
+                        }
+//                        else {
+//                            changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, retrievedChannel);
+//                        }
                     }
                     else {
                         System.out.println("Passwords did not match!");
@@ -168,57 +170,5 @@ public class DBUtils {
                 }
             }
         }
-    }
-
-    public void table(Stage primaryStage) {
-        TableView<Object> tableView = new TableView<>();
-
-        // Establish the database connection
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", ")) {
-            Statement statement = connection.createStatement();
-
-             // Retrieve data from the database
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
-
-             // Get column names
-             String[] columnNames = getColumnNames(resultSet);
-
-            // Create table columns dynamically
-            for (int i = 0; i < columnNames.length; i++) {
-                final int columnIndex = i;
-                TableColumn<String[], String> tableColumn = new TableColumn<>(columnNames[i]);
-                tableColumn.setCellValueFactory(cellData -> {
-                    String cellValue = cellData.getValue()[columnIndex];
-                    return new SimpleStringProperty(cellValue);
-                });
-                tableView.getColumns().add(tableColumn);
-            }
-
-            // Populate the table with data
-            while (resultSet.next()) {
-                String[] rowData = new String[columnNames.length];
-                for (int i = 0; i < columnNames.length; i++) {
-                    rowData[i] = resultSet.getString(i + 1);
-                }
-                tableView.getItems().add(rowData);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        VBox vbox = new VBox(tableView);
-        Scene scene = new Scene(vbox);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    private String[] getColumnNames(ResultSet resultSet) throws SQLException {
-        int columnCount = resultSet.getMetaData().getColumnCount();
-        String[] columnNames = new String[columnCount];
-        for (int i = 0; i < columnCount; i++) {
-            columnNames[i] = resultSet.getMetaData().getColumnLabel(i + 1);
-        }
-        return columnNames;
     }
 }

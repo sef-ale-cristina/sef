@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class LoggedInPacient implements Initializable {
     @FXML
-    private ListView<> list_therapists;
+    private ListView<String> list_therapists;
 
     @FXML
     private DatePicker date_appointment;

@@ -3,52 +3,41 @@ package com.example.sef_project;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.EventObject;
 import java.util.ResourceBundle;
-
 
 public class LogInController implements Initializable {
 
     @FXML
-    private Button button_logout;
+    private Button button_login;
 
     @FXML
-    Label label_welcome;
+    private Button button_sign_up;
 
     @FXML
-    Label label_fav_channel;
+    private TextField tf_username;
+
+    @FXML
+    private TextField tf_password;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        button_logout.setOnAction(new EventHandler<ActionEvent>() {
+        button_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sample.fxml", "Log In!", null, null);
+                DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
+            }
+        });
+
+        button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "sign-up.fxml", "Sign Up!", null, null);
             }
         });
     }
-
-        public void setUserInformation(String username, String app_role) throws IOException {
-            if(app_role.equals("pacient")) {
-                label_welcome.setText("Welcome " + username + "!");
-                label_fav_channel.setText("Pacient");
-            }
-            else {
-                label_welcome.setText("Welcome " + username + "!");
-                label_fav_channel.setText("Therapist");
-            }
-        }
-
 }
