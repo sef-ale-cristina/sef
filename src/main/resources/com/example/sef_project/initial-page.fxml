@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,10 +14,10 @@
             <Image url="@../../../pictures/welcome-back.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="6.0" layoutY="100.0" prefHeight="300.0" prefWidth="300.0">
+      <AnchorPane layoutY="86.0" prefHeight="300.0" prefWidth="300.0">
          <children>
-            <Label layoutX="86.0" layoutY="181.0" prefHeight="43.0" prefWidth="125.0" text="Log into your account:" textFill="#b17117" />
-            <Button fx:id="b_login" layoutX="115.0" layoutY="234.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Log In" textFill="#1ca15f" />
+            <Label layoutX="86.0" layoutY="181.0" prefHeight="43.0" prefWidth="125.0" text="Log into your account:" />
+            <Button fx:id="b_login" layoutX="115.0" layoutY="237.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Log In" textFill="#1ca15f" />
             <ImageView fitHeight="127.0" fitWidth="104.0" layoutX="98.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/password.png" />
@@ -28,16 +27,14 @@
       </AnchorPane>
       <AnchorPane layoutX="300.0" layoutY="86.0" prefHeight="300.0" prefWidth="300.0">
          <children>
-            <Label layoutX="128.0" layoutY="209.0" text="Sign up:" textFill="#b17117" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="169.0" prefHeight="50.0" prefWidth="132.0" text="Don't have an account? " textFill="#b17117" />
+            <Label layoutX="86.0" layoutY="181.0" prefHeight="43.0" prefWidth="125.0" text="Create a new account:" />
+            <Button fx:id="b_signup" layoutX="115.0" layoutY="237.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Sign up" textFill="#1ca15f" />
             <ImageView fitHeight="127.0" fitWidth="104.0" layoutX="97.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/add-friend.png" />
                </image>
             </ImageView>
             <Label alignment="CENTER" layoutX="-116.0" layoutY="6.0" prefHeight="18.0" prefWidth="258.0" style="-fx-background-color: #C1E4BA;" text="The place where your mental health matters!" textAlignment="CENTER" textFill="#b17117" />
-            <Separator layoutX="-21.0" layoutY="25.0" orientation="VERTICAL" prefHeight="286.0" prefWidth="50.0" style="-fx-background-color: #CEF5D4;" />
-            <Button fx:id="b_signup" layoutX="115.0" layoutY="247.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Sign up" textFill="#1ca15f" />
          </children></AnchorPane>
       <Label alignment="TOP_CENTER" layoutX="121.0" layoutY="36.0" prefHeight="31.0" prefWidth="357.0" style="-fx-background-color: #C1E4BA;" text="Welcome to Brain Harmony!" textAlignment="CENTER" textFill="#b17117">
          <font>

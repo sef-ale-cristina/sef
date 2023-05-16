@@ -5,26 +5,14 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
    <children>
-      <ImageView fitHeight="72.0" fitWidth="72.0" layoutX="21.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../pictures/welc_pacient.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="label_welcome" alignment="TOP_CENTER" layoutX="121.0" layoutY="35.0" prefHeight="31.0" prefWidth="357.0" style="-fx-background-color: #C1E4BA;" text="Welcome pacient!" textAlignment="CENTER" textFill="#b17117">
-         <font>
-            <Font name="Book Antiqua Bold" size="24.0" />
-         </font>
-      </Label>
+      <Label fx:id="label_welcome" layoutX="251.0" layoutY="29.0" text="Welcome, pacient!" />
       <AnchorPane layoutX="329.0" layoutY="91.0" prefHeight="238.0" prefWidth="200.0">
          <children>
-            <Label layoutX="7.0" layoutY="14.0" prefHeight="17.0" prefWidth="129.0" text="Make an appointment" textFill="#b17117" />
+            <Label layoutX="35.0" layoutY="22.0" prefHeight="17.0" prefWidth="129.0" text="Make an appointment" />
             <Label layoutX="14.0" layoutY="60.0" text="Pick a date" />
             <Label layoutX="16.0" layoutY="95.0" prefHeight="17.0" prefWidth="72.0" text="Pick the time:" />
             <Label layoutX="14.0" layoutY="127.0" text="Choose a therapist:" />
@@ -37,10 +25,10 @@
       </AnchorPane>
       <AnchorPane layoutX="51.0" layoutY="91.0" prefHeight="200.0" prefWidth="200.0">
          <children>
+            <Label layoutX="54.0" layoutY="14.0" text="See all therapists:" />
             <ListView fx:id="list_therapists" layoutY="38.0" prefHeight="200.0" prefWidth="200.0" />
-            <Label fx:id="selected_th" contentDisplay="CENTER" layoutX="49.0" layoutY="14.0" prefHeight="18.0" prefWidth="102.0" text="Select a Therapist:" textAlignment="CENTER" textFill="#b17117" />
          </children>
       </AnchorPane>
-      <Button fx:id="b_logout" layoutX="21.0" layoutY="353.0" mnemonicParsing="false" text="Log Out" />
+      <Button fx:id="b_logout" layoutX="492.0" layoutY="25.0" mnemonicParsing="false" text="Log Out" />
    </children>
 </AnchorPane>
