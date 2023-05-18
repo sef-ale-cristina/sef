@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,6 +33,7 @@ public class LoggedInController implements Initializable {
                 DBUtils.changeScene(event, "log-in.fxml", "Log In!", null, null);
             }
         });
+
     }
 
         public void setUserInformation(String username, String app_role) throws IOException {
