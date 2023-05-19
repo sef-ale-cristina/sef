@@ -54,7 +54,7 @@
             <Label layoutX="100.0" layoutY="340.0" prefHeight="17.0" prefWidth="142.0" text="Already a member?" />
             <Button fx:id="button_log_in" layoutX="185.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Log In!" textFill="#0d0870" underline="true" />
             <Label layoutX="10.0" layoutY="50.0" prefHeight="32.0" prefWidth="357.0" text="Please write your username as the following: name.last_name@role" />
-            <PasswordField fx:id="tf_password" layoutX="96.0" layoutY="118.0" prefHeight="32.0" prefWidth="150.0" />
+            <PasswordField fx:id="tf_password" layoutX="96.0" layoutY="121.0" />
          </children></AnchorPane>
    </children>
 </HBox>
