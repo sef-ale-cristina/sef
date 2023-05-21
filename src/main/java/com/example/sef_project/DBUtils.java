@@ -12,6 +12,7 @@ import java.sql.*;
 
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username, String app_role) {
@@ -46,7 +47,7 @@ public class DBUtils {
         stage.show();
     }
 
-    public static void signUpUser(ActionEvent event, String username, String password, String app_role) {
+    public static void signUpUser(ActionEvent event, String name, String last_name, LocalDate birthdate, String phone, String other, String username, String password, String app_role) {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
@@ -65,13 +66,23 @@ public class DBUtils {
                 alert.show();
             }
             else {
-                psInsert = connection.prepareStatement("INSERT INTO users (username, password, app_role) VALUES (?, ?, ?)");
-                psInsert.setString(1, username);
-                psInsert.setString(2, password);
-                psInsert.setString(3, app_role);
+                psInsert = connection.prepareStatement("INSERT INTO users (name, last_name, birthdate, phone, other, username, password, app_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                psInsert.setString(1, name);
+                psInsert.setString(2, last_name);
+                psInsert.setDate(3, Date.valueOf(birthdate));
+                psInsert.setString(4, phone);
+                psInsert.setString(5, other);
+                psInsert.setString(6, username);
+                psInsert.setString(7, password);
+                psInsert.setString(8, app_role);
                 psInsert.executeUpdate();
 
-                changeScene(event, "logged-in.fxml", "Welcome!", username, app_role);
+                if(app_role.equals("pacient")) {
+                    changeScene(event, "logged-in-pacient.fxml", "Welcome!", username, app_role);
+                }
+                else {
+                    changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, app_role);
+                }
             }
         } catch(SQLException e) {
             e.printStackTrace();
