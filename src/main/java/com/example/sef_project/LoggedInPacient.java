@@ -1,7 +1,8 @@
 package com.example.sef_project;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,12 +11,16 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.scene.control.TableView;
 
 public class LoggedInPacient implements Initializable {
     @FXML
-    private ListView<String> list_therapists;
-    String[] therapist={"Therapist1","Therapist2", "Therapist3", "Therapist4", "Therapist5"};
+    private TableView<Therapist> table_therapists;
 
     @FXML
     private Label selected_th;
@@ -39,6 +44,11 @@ public class LoggedInPacient implements Initializable {
     @FXML
     private Label label_welcome;
 
+    @FXML
+    private TableColumn<Therapist, String> t_username;
+
+    ObservableList<Therapist> listview = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         b_logout.setOnAction(new EventHandler<ActionEvent>() {
@@ -48,14 +58,35 @@ public class LoggedInPacient implements Initializable {
             }
         });
 
-        list_therapists.getItems().addAll(therapist);
-        list_therapists.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                currentTherapist=list_therapists.getSelectionModel().getSelectedItem();
-                selected_th.setText(currentTherapist);
+        t_username.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
+
+        try {
+            DBConnect cn = new DBConnect();
+            Connection cn1 = cn.getConnection();
+
+            String sql = "SELECT * FROM users WHERE app_role = 'therapist'";
+            Statement s = cn1.createStatement();
+            ResultSet r = s.executeQuery(sql);
+
+            while(r.next()) {
+                listview.add(new Therapist(
+                        r.getString("username")
+                ));
             }
-        });
+
+            table_therapists.setItems(listview);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+//        table_therapists.getItems().addAll(therapist);
+//        table_therapists.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+//                currentTherapist=table_therapists.getSelectionModel().getSelectedItem();
+//                selected_th.setText(currentTherapist);
+//            }
+//        });
     }
 
     public void setUserInformation(String username, String app_role) throws IOException {
