@@ -11,7 +11,10 @@ import java.util.ResourceBundle;
 
 public class InitialPage implements Initializable {
     @FXML
-    private Button b_signup;
+    private Button b_signup_pacient;
+
+    @FXML
+    private Button b_signup_therapist;
 
     @FXML
     private Button b_login;
@@ -24,10 +27,17 @@ public class InitialPage implements Initializable {
             }
         });
 
-        b_signup.setOnAction(new EventHandler<ActionEvent>() {
+        b_signup_pacient.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sign-up.fxml", "Sign Up!", null, null);
+                DBUtils.changeScene(event, "sign-up-pacient.fxml", "Sign Up!", null, null);
+            }
+        });
+
+        b_signup_therapist.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "sign-up-therapist.fxml", "Sign Up!", null, null);
             }
         });
     }
