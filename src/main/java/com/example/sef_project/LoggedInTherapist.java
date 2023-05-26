@@ -42,7 +42,21 @@ public class LoggedInTherapist implements Initializable {
     @FXML
     private Button b_today_app;
 
-    ObservableList<Appointment> listview = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Appointment_History> t_history;
+
+    @FXML
+    private TableColumn<Appointment_History, String> t_date;
+
+    @FXML
+    private TableColumn<Appointment_History, String> t_pacient;
+
+    @FXML
+    private Button b_history;
+
+    ObservableList<Appointment> listview_app = FXCollections.observableArrayList();
+
+    ObservableList<Appointment_History> listview_hist = FXCollections.observableArrayList();
 
     private Therapist therapist = new Therapist();
 
@@ -79,14 +93,42 @@ public class LoggedInTherapist implements Initializable {
                 ResultSet r = s.executeQuery(sql);
 
                 while(r.next()) {
-                    listview.add(new Appointment(
+                    listview_app.add(new Appointment(
                             r.getString("begin_time"),
                             r.getString("end_time"),
                             r.getString("pacient_username")
                     ));
                 }
 
-                t_today.setItems(listview);
+                t_today.setItems(listview_app);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        b_history.setOnAction(event -> {
+            t_date.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate()));
+            t_pacient.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPacient_username()));
+
+            try {
+                t_history.setVisible(true);
+                DBConnect cn = new DBConnect();
+                Connection cn1 = cn.getConnection();
+
+                String therapist_username = therapist.getUsername();
+
+                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND date < CAST( NOW() AS Date )";
+                Statement s = cn1.createStatement();
+                ResultSet r = s.executeQuery(sql);
+
+                while(r.next()) {
+                    listview_hist.add(new Appointment_History(
+                            r.getString("pacient_username"),
+                            r.getString("date")
+                    ));
+                }
+
+                t_history.setItems(listview_hist);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
