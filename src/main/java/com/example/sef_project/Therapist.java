@@ -10,10 +10,13 @@ public class Therapist {
     String phone;
     float price;
     ArrayList<String> working_days;
-    String username;
+    static String username;
 
     public Therapist(String username) {
         this.username = username;
+    }
+    public Therapist() {
+        this.username = "";
     }
 
     public String getUsername() {
