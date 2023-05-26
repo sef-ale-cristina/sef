@@ -12,44 +12,50 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LogInController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="235.0" style="-fx-background-color: #CEF5D4;">
+      <AnchorPane prefHeight="600.0" prefWidth="189.0" style="-fx-background-color: #CEF5D4;">
          <children>
-            <ImageView fitHeight="158.0" fitWidth="183.0" layoutX="3.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../pictures/sign_up.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="7.0" layoutY="166.0" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: #BCE1CD;" text="  Your mental " textAlignment="CENTER">
+            <Label layoutX="12.0" layoutY="208.0" prefHeight="36.0" prefWidth="149.0" style="-fx-background-color: #BCE1CD;" text="  Your mental " textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font></Label>
-            <Label alignment="TOP_CENTER" layoutX="29.0" layoutY="264.0" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #BCE1CD;" text="health" textAlignment="CENTER">
+            <Label alignment="TOP_CENTER" layoutX="29.0" layoutY="282.0" prefHeight="36.0" prefWidth="106.0" style="-fx-background-color: #BCE1CD;" text="health" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font></Label>
-            <Label alignment="TOP_CENTER" layoutX="35.0" layoutY="354.0" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #BCE1CD;" text="matters!" textAlignment="CENTER">
+            <Label alignment="TOP_CENTER" layoutX="35.0" layoutY="362.0" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #BCE1CD;" text="matters!" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="600.0" prefWidth="577.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
-         <children>
-            <ImageView fitHeight="178.0" fitWidth="209.0" layoutX="162.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="161.0" fitWidth="150.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/main_page.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="62.0" layoutY="227.0" prefHeight="24.0" prefWidth="70.0" text="Username" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="600.0" prefWidth="577.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <children>
+            <Label layoutX="91.0" layoutY="289.0" prefHeight="24.0" prefWidth="70.0" text="Username">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
 
-            <Label layoutX="60.0" layoutY="277.0" prefHeight="24.0" prefWidth="70.0" text="Password" />
-            <TextField fx:id="tf_username" layoutX="144.0" layoutY="223.0" prefHeight="32.0" prefWidth="215.0" />
-            <PasswordField fx:id="tf_password" layoutX="144.0" layoutY="270.0" prefHeight="32.0" prefWidth="215.0" />
-            <Button fx:id="button_login" layoutX="196.0" layoutY="470.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #CEF5D4;" text="Login" />
-            <Label layoutX="115.0" layoutY="538.0" prefHeight="17.0" prefWidth="94.0" text="Not a user?" />
-            <Button fx:id="button_sign_up" layoutX="244.0" layoutY="534.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#21056f" underline="true" />
+            <Label layoutX="91.0" layoutY="353.0" prefHeight="24.0" prefWidth="70.0" text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <TextField fx:id="tf_username" layoutX="189.0" layoutY="285.0" prefHeight="32.0" prefWidth="215.0" />
+            <PasswordField fx:id="tf_password" layoutX="189.0" layoutY="349.0" prefHeight="32.0" prefWidth="215.0" />
+            <Button fx:id="button_login" layoutX="257.0" layoutY="420.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #CEF5D4;" text="Login" />
+            <Label layoutX="175.0" layoutY="537.0" prefHeight="18.0" prefWidth="138.0" text="Don't have an account?" />
+            <Button fx:id="button_sign_up" layoutX="337.0" layoutY="533.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#21056f" underline="true" />
+            <ImageView fitHeight="231.0" fitWidth="174.0" layoutX="210.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pictures/sign_up.jpg" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane prefHeight="600.0" prefWidth="75.0" style="-fx-background-color: #CEF5D4;" />
    </children>
 </HBox>
