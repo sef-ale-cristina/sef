@@ -56,6 +56,6 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane prefHeight="600.0" prefWidth="75.0" style="-fx-background-color: #CEF5D4;" />
+      <AnchorPane prefHeight="600.0" prefWidth="75.0" style="-fx-background-color: #C1E4BA;" />
    </children>
 </HBox>

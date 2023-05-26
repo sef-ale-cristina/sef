@@ -16,27 +16,27 @@
             <Image url="@../../../pictures/welcome-back.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="14.0" layoutY="193.0" prefHeight="318.0" prefWidth="349.0">
+      <AnchorPane layoutX="91.0" layoutY="235.0" prefHeight="278.0" prefWidth="260.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="101.0" layoutY="187.0" prefHeight="43.0" prefWidth="147.0" text="Log into your account:" textFill="#1ca15f">
+            <Label layoutX="56.0" layoutY="153.0" prefHeight="43.0" prefWidth="147.0" text="Log into your account:" textFill="#1ca15f">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></Label>
-            <Button fx:id="b_login" layoutX="139.0" layoutY="245.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="70.0" text="Log In" textFill="#1ca15f" />
-            <ImageView fitHeight="121.0" fitWidth="126.0" layoutX="114.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="b_login" layoutX="95.0" layoutY="207.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="70.0" text="Log In" textFill="#1ca15f" />
+            <ImageView fitHeight="121.0" fitWidth="126.0" layoutX="70.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/password.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="453.0" layoutY="189.0" prefHeight="370.0" prefWidth="266.0">
+      <AnchorPane layoutX="461.0" layoutY="235.0" prefHeight="278.0" prefWidth="279.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
          <children>
-            <Label layoutX="77.0" layoutY="192.0" prefHeight="43.0" prefWidth="125.0" text="Create a new account:" textFill="#1ca15f">
+            <Label layoutX="83.0" layoutY="148.0" prefHeight="43.0" prefWidth="125.0" text="Create a new account:" textFill="#1ca15f">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Label>
-            <Button fx:id="b_signup_therapist" layoutX="14.0" layoutY="251.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" textFill="#1ca15f">
+            <Button fx:id="b_signup_therapist" layoutX="21.0" layoutY="213.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" textFill="#1ca15f">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -45,12 +45,12 @@
                      </children>
                   </VBox>
                </graphic></Button>
-            <ImageView fitHeight="114.0" fitWidth="121.0" layoutX="77.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="114.0" fitWidth="121.0" layoutX="83.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/add-friend.png" />
                </image>
             </ImageView>
-            <Button fx:id="b_signup_pacient" layoutX="179.0" layoutY="251.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" textFill="#1ca15f">
+            <Button fx:id="b_signup_pacient" layoutX="171.0" layoutY="213.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" textFill="#1ca15f">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -70,6 +70,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="367.0" layoutY="137.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="70.0" />
+      <Separator layoutX="339.0" layoutY="137.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="121.0" />
    </children>
 </AnchorPane>
