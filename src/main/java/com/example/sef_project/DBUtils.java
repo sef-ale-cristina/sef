@@ -306,7 +306,6 @@ public class DBUtils {
     }
 
     public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
-        //Declare statement as null
         Statement stmt = null;
         Connection connection = null;
         try {
@@ -318,7 +317,6 @@ public class DBUtils {
             throw e;
         } finally {
             if (stmt != null) {
-                //Close statement
                 stmt.close();
             }
 
