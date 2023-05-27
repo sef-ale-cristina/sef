@@ -106,9 +106,6 @@ public class LoggedInTherapist implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        p_today.setVisible(false);
-        p_history.setVisible(false);
-        p_pending.setVisible(false);
 
         b_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -116,6 +113,10 @@ public class LoggedInTherapist implements Initializable {
                 DBUtils.changeScene(event, "log-in.fxml", "Log In!", null, null);
             }
         });
+
+        p_today.setVisible(false);
+        p_history.setVisible(false);
+        p_pending.setVisible(false);
 
         b_today_app.setOnAction(event -> {
             p_today.setVisible(true);

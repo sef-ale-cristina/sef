@@ -17,7 +17,7 @@
             <Font name="Book Antiqua Bold" size="38.0" />
          </font>
       </Label>
-      <Button fx:id="b_logout" layoutX="806.0" layoutY="566.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
+      <Button fx:id="b_logout" layoutX="697.0" layoutY="8.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="111.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -58,7 +58,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="p_pending" layoutX="178.0" prefHeight="499.0" prefWidth="582.0">
+            <AnchorPane fx:id="p_pending" layoutX="179.0" layoutY="27.0" prefHeight="478.0" prefWidth="582.0">
                <children>
                   <TableView fx:id="t_pending" layoutX="144.0" layoutY="26.0" prefHeight="278.0" prefWidth="279.0">
                     <columns>
@@ -84,7 +84,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="b_update" layoutX="254.0" layoutY="464.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="59.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Update" textFill="#eaeaea">
+                  <Button fx:id="b_update" layoutX="228.0" layoutY="443.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Update" textFill="#eaeaea">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
