@@ -43,7 +43,7 @@ public class DBUtils {
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 800, 600));
         stage.show();
     }
 
@@ -209,6 +209,31 @@ public class DBUtils {
                 } catch(SQLException e) {
                     e.printStackTrace();
                 }
+            }
+
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
+        Statement stmt = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", "");
+            stmt = connection.createStatement();
+            stmt.executeUpdate(sqlStmt);
+        } catch (SQLException e) {
+            System.out.println("Problem occurred at executeUpdate operation : " + e);
+            throw e;
+        } finally {
+            if (stmt != null) {
+                stmt.close();
             }
 
             if(connection != null) {
