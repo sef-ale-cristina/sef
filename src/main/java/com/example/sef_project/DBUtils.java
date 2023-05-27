@@ -180,15 +180,16 @@ public class DBUtils {
                 psInsertUser.setString(3, app_role);
                 psInsertUser.executeUpdate();
 
-                psInsertTherapist = connection.prepareStatement("INSERT INTO therapist (name, last_name, birthdate, phone, price, days, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-                psInsertTherapist.setString(1, name);
-                psInsertTherapist.setString(2, last_name);
-                psInsertTherapist.setDate(3, Date.valueOf(birthdate));
-                psInsertTherapist.setString(4, phone);
-                psInsertTherapist.setFloat(5, Float.valueOf(price));
-                psInsertTherapist.setString(6, days);
-                psInsertTherapist.setString(7, start_time);
-                psInsertTherapist.setString(8, end_time);
+                psInsertTherapist = connection.prepareStatement("INSERT INTO therapist (username, name, last_name, birthdate, phone, price, days, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                psInsertTherapist.setString(1, username);
+                psInsertTherapist.setString(2, name);
+                psInsertTherapist.setString(3, last_name);
+                psInsertTherapist.setDate(4, Date.valueOf(birthdate));
+                psInsertTherapist.setString(5, phone);
+                psInsertTherapist.setFloat(6, Float.valueOf(price));
+                psInsertTherapist.setString(7, days);
+                psInsertTherapist.setString(8, start_time);
+                psInsertTherapist.setString(9, end_time);
                 psInsertTherapist.executeUpdate();
 
                 changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, app_role);
