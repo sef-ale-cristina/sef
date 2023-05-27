@@ -2,6 +2,7 @@ package com.example.sef_project;
 
 import java.time.LocalDate;
 
+import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,6 +67,8 @@ public class LoggedInPacient implements Initializable {
     String begin_time = new String("");
     String end_time = new String("");
 
+    String therapist_username = new String("");
+
     private Patient pacient = new Patient(null, null, null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -108,9 +111,9 @@ public class LoggedInPacient implements Initializable {
                 DBConnect cn = new DBConnect();
                 Connection cn1 = cn.getConnection();
 
-                String username = cb_therapist.getValue();
+                therapist_username = therapist_username.concat(cb_therapist.getValue());
 
-                String sql = "SELECT * FROM therapist WHERE username = '" + username + "'";
+                String sql = "SELECT * FROM therapist WHERE username = '" + therapist_username + "'";
                 Statement s = cn1.createStatement();
                 ResultSet r = s.executeQuery(sql);
 
@@ -138,46 +141,39 @@ public class LoggedInPacient implements Initializable {
                     alert.setContentText("The day you want to enter is outside the working program of the therapist!");
                     alert.show();
                 }
-            });
 
-            cb_time_begin.getItems().addAll("08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00");
+                cb_time_begin.getItems().addAll("08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00");
 
-            cb_time_end.getItems().addAll("09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00");
+                cb_time_end.getItems().addAll("09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00");
 
-            cb_time_begin.setOnAction(timeBeginEvent -> {
-                cb_time_end.setOnAction(timeEndEvent -> {
-                    String begin = cb_time_begin.getValue();
-                    String end = cb_time_end.getValue();
+                cb_time_begin.setOnAction(timeBeginEvent -> {
+                    cb_time_end.setOnAction(timeEndEvent -> {
+                        String begin = cb_time_begin.getValue();
+                        String end = cb_time_end.getValue();
 
-                    if(begin.compareTo(end)==1) {
-                        System.out.println("Insert correct times for an appointment!");
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Insert correct times for an appointment!");
-                        alert.show();
-                    }
-
-                    if(begin.compareTo(begin_time)==-1 || begin.compareTo(end_time)==1 || end.compareTo(begin_time)==-1 || end.compareTo(end_time)==1) {
-                        System.out.println("The time you selected is outside of the therapists's working hours!");
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("The time you selected is outside of the therapists's working hours!");
-                        alert.show();
-                    }
-
-                    b_schedule.setOnAction(scheduleEvent -> {
-                        try {
-                            DBConnect cn = new DBConnect();
-                            Connection cn1 = cn.getConnection();
-
-                            String username = cb_therapist.getValue();
-
-                            String sql = "SELECT * FROM appointments";
-                            Statement s = cn1.createStatement();
-                            ResultSet r = s.executeQuery(sql);
-
-
-                        } catch (SQLException e) {
-                            throw new RuntimeException(e);
+                        if(begin.compareTo(end)==1) {
+                            System.out.println("Insert correct times for an appointment!");
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("Insert correct times for an appointment!");
+                            alert.show();
                         }
+
+                        if(begin.compareTo(begin_time)==-1 || begin.compareTo(end_time)==1 || end.compareTo(begin_time)==-1 || end.compareTo(end_time)==1) {
+                            System.out.println("The time you selected is outside of the therapists's working hours!");
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("The time you selected is outside of the therapists's working hours!");
+                            alert.show();
+                        }
+
+                        b_schedule.setOnAction(scheduleEvent -> {
+                            try {
+                                Appointment_Creation.insertAppointment(pacient.getUsername(), therapist_username, localDate, begin, end);
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            } catch (ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
                     });
                 });
             });
