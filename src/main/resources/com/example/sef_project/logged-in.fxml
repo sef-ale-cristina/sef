@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoggedInController">
    <children>
       <Label fx:id="label_welcome" layoutX="274.0" layoutY="87.0" text="Welcome!" />
       <Label fx:id="label_fav_channel" layoutX="178.0" layoutY="152.0" prefHeight="17.0" prefWidth="312.0" text="Yout favorite channel is wittcode" textAlignment="CENTER" />

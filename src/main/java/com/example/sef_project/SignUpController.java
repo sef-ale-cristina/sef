@@ -1,5 +1,6 @@
 package com.example.sef_project;
 
+import DataBase.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {

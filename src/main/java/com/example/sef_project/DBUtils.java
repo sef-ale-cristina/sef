@@ -23,11 +23,12 @@ public class DBUtils {
                 FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
                 root = loader.load();
                 if(app_role.equals("pacient")) {
-                    LoggedInPacient loggedInPacient = loader.getController();
+                    //LoggedInPacient loggedInPacient = getController();
+                    LoggedInPacient loggedInPacient= loader.getController();
                     loggedInPacient.setUserInformation(username, app_role);
                 }
                 else {
-                    LoggedInTherapist loggedInTherapist = loader.getController();
+                    LoggedInTherapist loggedInTherapist= loader.getController();
                     loggedInTherapist.setUserInformation(username, app_role);
                 }
             } catch(IOException e) {
