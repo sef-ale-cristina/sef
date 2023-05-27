@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.DatePicker;
 
@@ -24,6 +25,8 @@ import java.util.Collections;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableRow;
+import org.w3c.dom.events.MouseEvent;
 
 import static com.mchange.v2.codegen.bean.BeangenUtils.capitalize;
 
@@ -58,6 +61,27 @@ public class LoggedInPacient implements Initializable {
 
     @FXML
     private TableColumn<Therapist, String> t_username;
+
+    @FXML
+    private Label l_name;
+
+    @FXML
+    private Label l_lastname;
+
+    @FXML
+    private Label l_date;
+
+    @FXML
+    private Label l_phone;
+
+    @FXML
+    private Label l_price;
+
+    @FXML
+    private Label l_days;
+
+    @FXML
+    private Label l_hours;
 
     ObservableList<Therapist> listview = FXCollections.observableArrayList();
 
@@ -102,6 +126,38 @@ public class LoggedInPacient implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        table_therapists.setRowFactory( tv -> {
+            TableRow<Therapist> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    Therapist rowData = row.getItem();
+                    //System.out.println(rowData.username);
+
+                    try {
+                        DBConnect cn = new DBConnect();
+                        Connection cn1 = cn.getConnection();
+
+                        String sql = "SELECT * FROM therapist WHERE username = '" + rowData.username + "'";
+                        Statement s = cn1.createStatement();
+                        ResultSet r = s.executeQuery(sql);
+
+                        while(r.next()) {
+                            l_name.setText(r.getString("name"));
+                            l_lastname.setText(r.getString("last_name"));
+                            l_date.setText(r.getString("birthdate"));
+                            l_phone.setText(r.getString("phone"));
+                            l_price.setText(r.getString("price"));
+                            l_days.setText(r.getString("days"));
+                            l_hours.setText(r.getString("start_time") + " - " + r.getString("end_time"));
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            return row;
+        });
 
         Collections.sort(therapists);
         cb_therapist.getItems().addAll(therapists);
@@ -178,6 +234,8 @@ public class LoggedInPacient implements Initializable {
                 });
             });
         });
+
+
     }
 
     public void setUserInformation(String username, String app_role) throws IOException {
