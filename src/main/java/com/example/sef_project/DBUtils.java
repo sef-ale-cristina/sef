@@ -47,11 +47,10 @@ public class DBUtils {
         stage.show();
     }
 
-    public static void signUpUser(ActionEvent event, String name, String last_name, LocalDate birthdate, String phone, String other, String username, String password, String app_role) {
+    public static void signUpPacient(ActionEvent event, String name, String last_name, LocalDate birthdate, String phone, String other, String username, String password, String app_role) {
         Connection connection = null;
         PreparedStatement psInsertUser = null;
         PreparedStatement psInsertPacient = null;
-        PreparedStatement psInsertTherapist = null;
         PreparedStatement psCheckUserExists = null;
         ResultSet resultSet = null;
 
@@ -73,33 +72,15 @@ public class DBUtils {
                 psInsertUser.setString(2, password);
                 psInsertUser.setString(3, app_role);
                 psInsertUser.executeUpdate();
-//                psInsert.setDate(3, Date.valueOf(birthdate));
-//                psInsert.setString(4, phone);
-//                psInsert.setString(5, other);
-//                psInsert.setString(6, username);
-//                psInsert.setString(7, password);
-//                psInsert.setString(8, app_role);
 
-                if(app_role.equals("pacient")) {
-                    psInsertPacient = connection.prepareStatement("INSERT INTO patient (name, last_name, birthdate, phone, history) VALUES (?, ?, ?, ?, ?)");
-                    psInsertPacient.setString(1, name);
-                    psInsertPacient.setString(2, last_name);
-                    psInsertPacient.setDate(3, Date.valueOf(birthdate));
-                    psInsertPacient.setString(4, phone);
-                    psInsertPacient.setString(5, other);
-                    psInsertPacient.executeUpdate();
-                    changeScene(event, "logged-in-pacient.fxml", "Welcome!", username, app_role);
-                }
-                else {
-                    psInsertTherapist = connection.prepareStatement("INSERT INTO therapist (name, last_name, birthdate, phone, price) VALUES (?, ?, ?, ?, ?)");
-                    psInsertTherapist.setString(1, name);
-                    psInsertTherapist.setString(2, last_name);
-                    psInsertTherapist.setDate(3, Date.valueOf(birthdate));
-                    psInsertTherapist.setString(4, phone);
-                    psInsertTherapist.setFloat(5, Float.valueOf(other));
-                    psInsertTherapist.executeUpdate();
-                    changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, app_role);
-                }
+                psInsertPacient = connection.prepareStatement("INSERT INTO patient (name, last_name, birthdate, phone, history) VALUES (?, ?, ?, ?, ?)");
+                psInsertPacient.setString(1, name);
+                psInsertPacient.setString(2, last_name);
+                psInsertPacient.setDate(3, Date.valueOf(birthdate));
+                psInsertPacient.setString(4, phone);
+                psInsertPacient.setString(5, other);
+                psInsertPacient.executeUpdate();
+                changeScene(event, "logged-in-pacient.fxml", "Welcome!", username, app_role);
             }
         } catch(SQLException e) {
             e.printStackTrace();
@@ -131,14 +112,6 @@ public class DBUtils {
             if(psInsertPacient != null) {
                 try {
                     psInsertPacient.close();
-                } catch(SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if(psInsertTherapist != null) {
-                try {
-                    psInsertTherapist.close();
                 } catch(SQLException e) {
                     e.printStackTrace();
                 }

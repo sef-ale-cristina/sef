@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
@@ -58,7 +57,7 @@ public class SignUpController implements Initializable {
                 String toggleName = ((RadioButton) toggleGroup.getSelectedToggle()).getText();
 
                 if(!tf_name.getText().trim().isEmpty() && !tf_lastname.getText().trim().isEmpty() && !dp_birthdate.getValue().toString().trim().isEmpty() && !tf_phone.getText().trim().isEmpty() && !tf_other.getText().trim().isEmpty() && !tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    DBUtils.signUpUser(event,tf_name.getText(), tf_lastname.getText(), dp_birthdate.getValue() , tf_phone.getText(), tf_other.getText(), tf_username.getText(), tf_password.getText(), toggleName);
+                    DBUtils.signUpPacient(event,tf_name.getText(), tf_lastname.getText(), dp_birthdate.getValue() , tf_phone.getText(), tf_other.getText(), tf_username.getText(), tf_password.getText(), toggleName);
                 }
                 else {
                     System.out.println("Please fill in all the information!");
