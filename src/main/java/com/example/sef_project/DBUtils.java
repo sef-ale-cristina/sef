@@ -304,4 +304,31 @@ public class DBUtils {
             }
         }
     }
+
+    public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
+        //Declare statement as null
+        Statement stmt = null;
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", "");
+            stmt = connection.createStatement();
+            stmt.executeUpdate(sqlStmt);
+        } catch (SQLException e) {
+            System.out.println("Problem occurred at executeUpdate operation : " + e);
+            throw e;
+        } finally {
+            if (stmt != null) {
+                //Close statement
+                stmt.close();
+            }
+
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

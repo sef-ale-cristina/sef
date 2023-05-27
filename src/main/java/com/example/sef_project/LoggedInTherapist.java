@@ -1,5 +1,6 @@
 package com.example.sef_project;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,10 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,9 +52,39 @@ public class LoggedInTherapist implements Initializable {
     @FXML
     private Button b_history;
 
+    @FXML
+    private Button b_pending;
+
+    @FXML
+    private TableView<Appointment_Pending> t_pending;
+
+    @FXML
+    private TableColumn<Appointment_Pending, Integer> t_id;
+
+    @FXML
+    private TableColumn<Appointment_Pending, String> t_p_patient;
+
+    @FXML
+    private TableColumn<Appointment_Pending, String> t_p_date;
+    @FXML
+    private TableColumn<Appointment_Pending, String> t_p_begin;
+    @FXML
+    private TableColumn<Appointment_Pending, String> t_p_end;
+
+    @FXML
+    private TextField pending_id;
+
+    @FXML
+    private TextField new_status;
+
+    @FXML
+    private Label resultArea;
+
     ObservableList<Appointment> listview_app = FXCollections.observableArrayList();
 
     ObservableList<Appointment_History> listview_hist = FXCollections.observableArrayList();
+
+    ObservableList<Appointment_Pending> listview_pending = FXCollections.observableArrayList();
 
     private Therapist therapist = new Therapist();
 
@@ -134,5 +162,49 @@ public class LoggedInTherapist implements Initializable {
             }
         });
 
+        b_pending.setOnAction(event -> {
+            t_id.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
+            t_p_patient.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPatient_username()));
+            t_p_date.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate()));
+            t_p_begin.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBegin()));
+            t_p_end.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEnd()));
+
+            try {
+                t_pending.setVisible(true);
+                DBConnect cn = new DBConnect();
+                Connection cn1 = cn.getConnection();
+
+                String therapist_username = therapist.getUsername();
+
+                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND status = 'pending'";
+                Statement s = cn1.createStatement();
+                ResultSet r = s.executeQuery(sql);
+
+                while(r.next()) {
+                    listview_pending.add(new Appointment_Pending(
+                            r.getInt("id"),
+                            r.getString("pacient_username"),
+                            r.getString("date"),
+                            r.getString("begin_time"),
+                            r.getString("end_time")
+                    ));
+                }
+
+                t_pending.setItems(listview_pending);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+    }
+
+    @FXML
+    private void updateStatus (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Appointment_Pending.updateStatus(Integer.parseInt(pending_id.getText()), new_status.getText());
+            resultArea.setText("Status has been updated for, appointment id: " + pending_id.getText() + "\n");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
