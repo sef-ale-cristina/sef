@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
     <children>
       <ImageView fitHeight="602.0" fitWidth="911.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,7 +28,7 @@
                         <TableColumn fx:id="t_username" prefWidth="199.0" text="name" />
                     </columns>
                 </TableView>
-                <Label fx:id="selected_th" contentDisplay="CENTER" layoutX="77.0" layoutY="1.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #eaeaea;" text="Select a Therapist:" textAlignment="CENTER" textFill="#b17117">
+                <Label fx:id="selected_th" contentDisplay="CENTER" layoutX="60.0" layoutY="1.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #eaeaea;" text="Available Therapists:" textAlignment="CENTER" textFill="#b17117">
                <font>
                   <Font size="16.0" />
                </font></Label>
@@ -78,23 +78,13 @@
             <Font name="Book Antiqua Bold" size="39.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="527.0" layoutY="137.0" prefHeight="270.0" prefWidth="312.0" style="-fx-background-color: #eaeaea;">
+      <AnchorPane layoutX="488.0" layoutY="137.0" prefHeight="270.0" prefWidth="312.0" style="-fx-background-color: #eaeaea;">
          <children>
             <Label layoutX="5.0" layoutY="8.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #eaeaea;" text="Make an appointment" textFill="#b9771a">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="60.0" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #eaeaea;" text="Pick a date" textFill="#b9771a">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="34.0" layoutY="104.0" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #eaeaea;" text="Pick the time:" textFill="#b9771a" />
-            <Label layoutX="37.0" layoutY="147.0" style="-fx-background-color: #eaeaea;" text="Choose a therapist:" textFill="#b9771a" />
-            <DatePicker fx:id="date_appointment" layoutX="143.0" layoutY="54.0" prefHeight="31.0" prefWidth="159.0" promptText="Pick a date" />
-            <ComboBox fx:id="cb_time" layoutX="154.0" layoutY="100.0" prefHeight="25.0" prefWidth="129.0" />
-            <ComboBox fx:id="cb_therapist" layoutX="154.0" layoutY="143.0" prefHeight="25.0" prefWidth="129.0" />
             <Button fx:id="b_schedule" layoutX="219.0" layoutY="230.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Schedule" textFill="#eaeaea">
                <font>
                   <Font size="13.0" />
@@ -107,5 +97,28 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <GridPane layoutX="505.0" layoutY="188.0" prefHeight="162.0" prefWidth="276.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #eaeaea;" text="Pick a date" textFill="#b9771a" GridPane.rowIndex="1">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date_appointment" prefHeight="31.0" prefWidth="159.0" promptText="Pick a date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #eaeaea;" text="Pick the time:" textFill="#b9771a" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cb_time" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cb_therapist" prefHeight="25.0" prefWidth="129.0" GridPane.columnIndex="1" />
+            <Label style="-fx-background-color: #eaeaea;" text="Choose a therapist" textFill="#b9771a" />
+         </children>
+      </GridPane>
     </children>
 </AnchorPane>
