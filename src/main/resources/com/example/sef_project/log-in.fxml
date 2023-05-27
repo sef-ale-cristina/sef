@@ -48,14 +48,22 @@
                </font></Label>
             <TextField fx:id="tf_username" layoutX="189.0" layoutY="285.0" prefHeight="32.0" prefWidth="215.0" />
             <PasswordField fx:id="tf_password" layoutX="189.0" layoutY="349.0" prefHeight="32.0" prefWidth="215.0" />
-            <Button fx:id="button_login" layoutX="257.0" layoutY="420.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #CEF5D4;" text="Login" />
+            <Button fx:id="button_login" layoutX="257.0" layoutY="420.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #CEF5D4;" text="Login">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             <Label layoutX="175.0" layoutY="537.0" prefHeight="18.0" prefWidth="138.0" text="Don't have an account?" />
             <Button fx:id="button_sign_up" layoutX="337.0" layoutY="533.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Sign up!" textFill="#21056f" underline="true" />
-            <ImageView fitHeight="231.0" fitWidth="174.0" layoutX="210.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="179.0" fitWidth="185.0" layoutX="195.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../pictures/sign_up.jpg" />
                </image>
             </ImageView>
+            <Label alignment="CENTER" layoutX="220.0" layoutY="231.0" prefHeight="32.0" prefWidth="138.0" style="-fx-background-color: #BCE1CD;" text="Please log in:" textAlignment="CENTER" textFill="#396340">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <AnchorPane prefHeight="600.0" prefWidth="75.0" style="-fx-background-color: #C1E4BA;" />
    </children>

@@ -24,16 +24,16 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="47.0" layoutY="60.0" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #eaeaea;" text="Pick a date" textFill="#b9771a">
+            <Label layoutX="37.0" layoutY="60.0" prefHeight="19.0" prefWidth="65.0" style="-fx-background-color: #eaeaea;" text="Pick a date" textFill="#b9771a">
                <font>
                   <Font size="13.0" />
                </font></Label>
-            <Label layoutX="44.0" layoutY="104.0" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #eaeaea;" text="Pick the time:" textFill="#b9771a" />
-            <Label layoutX="44.0" layoutY="147.0" style="-fx-background-color: #eaeaea;" text="Choose a therapist:" textFill="#b9771a" />
-            <Label layoutX="75.0" layoutY="190.0" text="Price: ... lei" textFill="#b9771a" />
-            <DatePicker fx:id="date_appointment" layoutX="143.0" layoutY="54.0" prefHeight="31.0" prefWidth="159.0" />
+            <Label layoutX="34.0" layoutY="104.0" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #eaeaea;" text="Pick the time:" textFill="#b9771a" />
+            <Label layoutX="37.0" layoutY="147.0" style="-fx-background-color: #eaeaea;" text="Choose a therapist:" textFill="#b9771a" />
+            <Label layoutX="37.0" layoutY="187.0" text="Price:" textFill="#b9771a" />
+            <DatePicker fx:id="date_appointment" layoutX="143.0" layoutY="54.0" prefHeight="31.0" prefWidth="159.0" promptText="Pick a date" />
             <ComboBox fx:id="cb_time" layoutX="154.0" layoutY="100.0" prefHeight="25.0" prefWidth="129.0" />
-            <ComboBox fx:id="cb_therapist" layoutX="158.0" layoutY="143.0" prefHeight="25.0" prefWidth="129.0" />
+            <ComboBox fx:id="cb_therapist" layoutX="154.0" layoutY="143.0" prefHeight="25.0" prefWidth="129.0" />
             <Button fx:id="b_schedule" layoutX="219.0" layoutY="230.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Schedule" textFill="#eaeaea">
                <font>
                   <Font size="13.0" />

@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.scene.control.TableView;
 
@@ -87,6 +88,11 @@ public class LoggedInPacient implements Initializable {
 //                selected_th.setText(currentTherapist);
 //            }
 //        });
+    }
+
+    public  void getDate(ActionEvent event){
+        LocalDate myDate= date_appointment.getValue();
+
     }
 
     public void setUserInformation(String username, String app_role) throws IOException {
