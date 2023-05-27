@@ -59,7 +59,7 @@
             <Font name="Book Antiqua Bold" size="39.0" />
          </font>
       </Label>
-      <Button fx:id="b_logout" layoutX="805.0" layoutY="548.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
+      <Button fx:id="b_logout" layoutX="385.0" layoutY="554.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
