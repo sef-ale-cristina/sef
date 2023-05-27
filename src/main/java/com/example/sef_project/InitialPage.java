@@ -37,7 +37,7 @@ public class InitialPage implements Initializable {
         b_signup_therapist.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sign-up-therapist.fxml", "Sign Up!", null, null);
+                DBUtils.changeScene(event, "/com/example/sef_project/sign-up-therapist.fxml", "Sign Up!", null, null);
             }
         });
     }

@@ -154,6 +154,90 @@ public class DBUtils {
         }
     }
 
+    public static void signUpTherapist(ActionEvent event, String name, String last_name, LocalDate birthdate, String phone, String price, String days, String start_time, String end_time, String username, String password, String app_role) {
+        Connection connection = null;
+        PreparedStatement psInsertUser = null;
+        PreparedStatement psInsertTherapist = null;
+        PreparedStatement psCheckUserExists = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sef", "root", "");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            psCheckUserExists.setString(1, username);
+            resultSet = psCheckUserExists.executeQuery();
+
+            if(resultSet.isBeforeFirst()) {
+                System.out.println("User already exists!");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("You cannot use this username.");
+                alert.show();
+            }
+            else {
+                psInsertUser = connection.prepareStatement("INSERT INTO users (username, password, app_role) VALUES (?, ?, ?)");
+                psInsertUser.setString(1, username);
+                psInsertUser.setString(2, password);
+                psInsertUser.setString(3, app_role);
+                psInsertUser.executeUpdate();
+
+                psInsertTherapist = connection.prepareStatement("INSERT INTO therapist (name, last_name, birthdate, phone, price, days, start_time, end_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                psInsertTherapist.setString(1, name);
+                psInsertTherapist.setString(2, last_name);
+                psInsertTherapist.setDate(3, Date.valueOf(birthdate));
+                psInsertTherapist.setString(4, phone);
+                psInsertTherapist.setFloat(5, Float.valueOf(price));
+                psInsertTherapist.setString(6, days);
+                psInsertTherapist.setString(7, start_time);
+                psInsertTherapist.setString(8, end_time);
+                psInsertTherapist.executeUpdate();
+
+                changeScene(event, "logged-in-therapist.fxml", "Welcome!", username, app_role);
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if(resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(psCheckUserExists != null) {
+                try {
+                    psCheckUserExists.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(psInsertUser != null) {
+                try {
+                    psInsertUser.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(psInsertTherapist != null) {
+                try {
+                    psInsertTherapist.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(connection != null) {
+                try {
+                    connection.close();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
     public static void logInUser(ActionEvent event, String username, String password) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
