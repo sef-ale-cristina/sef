@@ -13,16 +13,50 @@ import java.util.ResourceBundle;
 public class LogInController implements Initializable {
 
     @FXML
-    private Button button_login;
+    public Button button_login;
 
     @FXML
-    private Button button_sign_up;
+    public Button button_sign_up;
 
     @FXML
-    private TextField tf_username;
+    public TextField tf_username;
 
     @FXML
-    private TextField tf_password;
+    public TextField tf_password;
+
+
+    public Button getButton_login() {
+        return button_login;
+    }
+
+    public void setButton_login(Button button_login) {
+        this.button_login = button_login;
+    }
+
+    public Button getButton_sign_up() {
+        return button_sign_up;
+    }
+
+    public void setButton_sign_up(Button button_sign_up) {
+        this.button_sign_up = button_sign_up;
+    }
+
+    public TextField getTf_username() {
+        return tf_username;
+    }
+
+    public void setTf_username(TextField tf_username) {
+        this.tf_username = tf_username;
+    }
+
+    public TextField getTf_password() {
+        return tf_password;
+    }
+
+    public void setTf_password(TextField tf_password) {
+        this.tf_password = tf_password;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
