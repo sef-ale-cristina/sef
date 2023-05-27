@@ -11,6 +11,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
 <AnchorPane prefHeight="504.0" prefWidth="659.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
    <children>
       <Label fx:id="label_welcome" layoutX="251.0" layoutY="29.0" text="Welcome, pacient!" />
