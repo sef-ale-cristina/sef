@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.SignUpPacientController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.SignUpPacientController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #CEF5D4;">
          <children>
@@ -47,33 +38,18 @@
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label alignment="TOP_CENTER" layoutX="17.0" layoutY="267.0" prefHeight="27.0" prefWidth="212.0" text="You are sign up as: " />
-            <Label fx:id="l_role" alignment="TOP_CENTER" layoutX="89.0" layoutY="267.0" prefHeight="27.0" prefWidth="241.0" text="pacient" />
-            <Button fx:id="button_signup" layoutX="295.0" layoutY="475.0" mnemonicParsing="false" style="-fx-background-color: #CEF5D4;" text="Sign up" />
+            <Label alignment="TOP_CENTER" layoutX="17.0" layoutY="391.0" prefHeight="32.0" prefWidth="354.0" text="You are signing up as a patient " />
+            <Button fx:id="button_signup" layoutX="258.0" layoutY="468.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="127.0" style="-fx-background-color: #CEF5D4;" text="Sign up" />
             <Label layoutX="210.0" layoutY="530.0" prefHeight="17.0" prefWidth="142.0" text="Already a member?" />
-            <Button fx:id="button_log_in" layoutX="369.0" layoutY="526.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: transparent;" text="Log In!" textFill="#0d0870" underline="true" />
-            <GridPane layoutX="14.0" layoutY="207.0" prefHeight="60.0" prefWidth="301.0">
+            <Button fx:id="button_log_in" layoutX="331.0" layoutY="526.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: transparent;" text="Log In!" textFill="#0d0870" underline="true" />
+            <GridPane layoutX="41.0" layoutY="61.0" prefHeight="312.0" prefWidth="295.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.0" minWidth="10.0" prefWidth="109.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.0" minWidth="10.0" prefWidth="192.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label prefHeight="32.0" prefWidth="72.0" text="Username" />
-                  <PasswordField fx:id="tf_password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label prefHeight="17.0" prefWidth="64.0" text="Password" GridPane.rowIndex="1" />
-                  <TextField fx:id="tf_username" prefHeight="32.0" prefWidth="149.0" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-            <GridPane layoutX="23.0" layoutY="48.0" prefHeight="128.0" prefWidth="248.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="94.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="128.0" />
-              </columnConstraints>
-              <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -82,15 +58,19 @@
               </rowConstraints>
                <children>
                   <Label text="Name" />
-                  <Label text="Last name" GridPane.rowIndex="1" />
-                  <Label text="Birthdate" GridPane.rowIndex="2" />
                   <TextField fx:id="tf_name" GridPane.columnIndex="1" />
+                  <Label text="Last name" GridPane.rowIndex="1" />
                   <TextField fx:id="tf_lastname" prefHeight="25.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Phone" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="dp_birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Birthdate" GridPane.rowIndex="2" />
                   <TextField fx:id="tf_phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Phone" GridPane.rowIndex="3" />
                   <TextField fx:id="tf_other" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                   <Label text="Other diagnosis:" GridPane.rowIndex="4" />
-                  <DatePicker fx:id="dp_birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="tf_username" prefHeight="27.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label prefHeight="32.0" prefWidth="72.0" text="Username" GridPane.rowIndex="5" />
+                  <Label prefHeight="17.0" prefWidth="64.0" text="Password" GridPane.rowIndex="6" />
+                  <PasswordField fx:id="tf_password" prefHeight="27.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
          </children>
