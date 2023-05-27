@@ -13,12 +13,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
    <children>
-      <ImageView fitHeight="621.0" fitWidth="898.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="899.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../pictures/daisy.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="442.0" layoutY="191.0" prefHeight="270.0" prefWidth="312.0" style="-fx-background-color: #eaeaea;">
+      <AnchorPane layoutX="426.0" layoutY="165.0" prefHeight="270.0" prefWidth="312.0" style="-fx-background-color: #eaeaea;">
          <children>
             <Label layoutX="5.0" layoutY="8.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #eaeaea;" text="Make an appointment" textFill="#b9771a">
                <font>
@@ -43,23 +43,23 @@
       </AnchorPane>
       <AnchorPane layoutX="66.0" layoutY="139.0" prefHeight="368.0" prefWidth="278.0">
          <children>
-            <TableView fx:id="table_therapists" layoutX="26.0" layoutY="89.0" prefHeight="238.0" prefWidth="238.0">
+            <TableView fx:id="table_therapists" layoutX="20.0" layoutY="65.0" prefHeight="228.0" prefWidth="238.0">
                <columns>
                   <TableColumn fx:id="t_username" prefWidth="199.0" text="name" />
                </columns>
             </TableView>
-            <Label fx:id="selected_th" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="41.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #eaeaea;" text="Select a Therapist:" textFill="#b9771a">
+            <Label fx:id="selected_th" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="14.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #eaeaea;" text="Select a Therapist:" textFill="#b9771a">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
          </children>
       </AnchorPane>
-      <Label fx:id="label_welcome" alignment="TOP_CENTER" layoutX="273.0" layoutY="47.0" prefHeight="43.0" prefWidth="338.0" text="Welcome, pacient!" textAlignment="CENTER" textFill="#b17117">
+      <Label fx:id="label_welcome" alignment="TOP_CENTER" layoutX="244.0" layoutY="37.0" prefHeight="43.0" prefWidth="338.0" text="Welcome, pacient!" textAlignment="CENTER" textFill="#b17117">
          <font>
             <Font name="Book Antiqua Bold" size="39.0" />
          </font>
       </Label>
-      <Button fx:id="b_logout" layoutX="805.0" layoutY="548.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
+      <Button fx:id="b_logout" layoutX="714.0" layoutY="554.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

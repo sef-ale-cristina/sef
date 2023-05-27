@@ -21,7 +21,8 @@ import javafx.scene.control.TableView;
 
 public class LoggedInPacient implements Initializable {
     @FXML
-    private TableView<Therapist> table_therapists;
+    //private TableView<Therapist> table_therapists;
+    private TableView <Therapist> table_therapists;
 
     @FXML
     private Label selected_th;
