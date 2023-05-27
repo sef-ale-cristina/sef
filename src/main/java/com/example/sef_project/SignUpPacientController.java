@@ -32,9 +32,6 @@ public class SignUpPacientController implements Initializable {
     private TextField tf_other;
 
     @FXML
-    private Label l_role;
-
-    @FXML
     private TextField tf_password;
 
     @FXML
@@ -48,7 +45,9 @@ public class SignUpPacientController implements Initializable {
             public void handle(ActionEvent event) {
 
                 if(!tf_name.getText().trim().isEmpty() && !tf_lastname.getText().trim().isEmpty() && !dp_birthdate.getValue().toString().trim().isEmpty() && !tf_phone.getText().trim().isEmpty() && !tf_other.getText().trim().isEmpty() && !tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
-                    DBUtils.signUpPacient(event,tf_name.getText(), tf_lastname.getText(), dp_birthdate.getValue() , tf_phone.getText(), tf_other.getText(), tf_username.getText(), tf_password.getText(), l_role.getText());
+
+                    DBUtils.signUpPacient(event,tf_name.getText(), tf_lastname.getText(), dp_birthdate.getValue() , tf_phone.getText(), tf_other.getText(), tf_username.getText(), tf_password.getText(), "pacient");
+
                 }
                 else {
                     System.out.println("Please fill in all the information!");

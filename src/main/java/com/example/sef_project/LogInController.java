@@ -16,7 +16,10 @@ public class LogInController implements Initializable {
     private Button button_login;
 
     @FXML
-    private Button button_sign_up;
+    private Button button_sign_up_pacient;
+
+    @FXML
+    private Button button_sign_up_therapist;
 
     @FXML
     private TextField tf_username;
@@ -33,10 +36,17 @@ public class LogInController implements Initializable {
             }
         });
 
-        button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
+        button_sign_up_pacient.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "sign-up.fxml", "Sign Up!", null, null);
+                DBUtils.changeScene(event, "sign-up-pacient.fxml", "Sign Up!", null, null);
+            }
+        });
+
+        button_sign_up_therapist.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "sign-up-therapist.fxml", "Sign Up!", null, null);
             }
         });
     }
