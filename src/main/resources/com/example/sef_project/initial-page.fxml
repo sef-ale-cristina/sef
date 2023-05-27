@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.InitialPage">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.InitialPage">
    <children>
-      <ImageView fitHeight="77.0" fitWidth="78.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="77.0" fitWidth="78.0" layoutX="53.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../pictures/welcome-back.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="91.0" layoutY="235.0" prefHeight="278.0" prefWidth="260.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
+      <AnchorPane layoutX="92.0" layoutY="235.0" prefHeight="278.0" prefWidth="260.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
          <children>
             <Label layoutX="56.0" layoutY="153.0" prefHeight="43.0" prefWidth="147.0" text="Log into your account:" textFill="#1ca15f">
                <font>
@@ -30,7 +30,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="461.0" layoutY="235.0" prefHeight="278.0" prefWidth="279.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
+      <AnchorPane layoutX="546.0" layoutY="235.0" prefHeight="278.0" prefWidth="279.0" style="-fx-background-color: #C1E4BA; -fx-background-radius: 10px;">
          <children>
             <Label layoutX="83.0" layoutY="148.0" prefHeight="43.0" prefWidth="125.0" text="Create a new account:" textFill="#1ca15f">
                <font>
@@ -61,15 +61,15 @@
                </graphic>
             </Button>
          </children></AnchorPane>
-      <Label alignment="TOP_CENTER" layoutX="202.0" layoutY="34.0" prefHeight="43.0" prefWidth="422.0" style="-fx-background-color: #C1E4BA;" text="Welcome to Brain Harmony!" textAlignment="CENTER" textFill="#b17117">
+      <Label alignment="TOP_CENTER" layoutX="244.0" layoutY="34.0" prefHeight="43.0" prefWidth="422.0" style="-fx-background-color: #C1E4BA;" text="Welcome to Brain Harmony!" textAlignment="CENTER" textFill="#b17117">
          <font>
             <Font name="Book Antiqua Bold" size="27.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="266.0" layoutY="106.0" prefHeight="31.0" prefWidth="293.0" style="-fx-background-color: #C1E4BA;" text="The place where your mental health matters!" textAlignment="CENTER" textFill="#b17117">
+      <Label alignment="CENTER" layoutX="308.0" layoutY="106.0" prefHeight="31.0" prefWidth="293.0" style="-fx-background-color: #C1E4BA;" text="The place where your mental health matters!" textAlignment="CENTER" textFill="#b17117">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="339.0" layoutY="137.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="121.0" />
+      <Separator layoutX="386.0" layoutY="137.0" orientation="VERTICAL" prefHeight="474.0" prefWidth="136.0" />
    </children>
 </AnchorPane>
