@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInTherapist">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInTherapist">
    <children>
       <ImageView fitHeight="608.0" fitWidth="907.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,76 +17,81 @@
             <Font name="Book Antiqua Bold" size="38.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="33.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0">
-         <children>
-            <TableView fx:id="t_today" layoutX="1.0" layoutY="87.0" prefHeight="200.0" prefWidth="293.0" visible="false">
-              <columns>
-                <TableColumn fx:id="t_start" prefWidth="98.0" text="start_time" />
-                 <TableColumn fx:id="t_end" prefWidth="75.0" text="end_time" />
-                <TableColumn fx:id="t_patient" prefWidth="138.0" text="patient" />
-              </columns>
-            </TableView>
-            <Button fx:id="b_today_app" layoutX="25.0" layoutY="8.0" mnemonicParsing="false" text="Show today appointments" />
-         </children>
-      </AnchorPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="652.0" layoutY="117.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="  See history of appointments:" textAlignment="CENTER" textFill="#b17117">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <AnchorPane layoutX="652.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0">
-         <children>
-            <TableView fx:id="t_history" layoutY="48.0" prefHeight="200.0" prefWidth="312.0" visible="false">
-               <columns>
-                  <TableColumn fx:id="t_date" prefWidth="156.0" text="date" />
-                  <TableColumn fx:id="t_pacient" prefWidth="155.0" text="pacient" />
-               </columns>
-            </TableView>
-            <Button fx:id="b_history" layoutX="67.0" layoutY="1.0" mnemonicParsing="false" text="Show history" />
-         </children>
-      </AnchorPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="117.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="Today's appointments" textAlignment="CENTER" textFill="#b17117">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <AnchorPane layoutX="166.0" layoutY="70.0" prefHeight="376.0" prefWidth="567.0">
-         <children>
-            <Button fx:id="b_pending" layoutX="212.0" layoutY="23.0" mnemonicParsing="false" text="See pending appointments" />
-            <TableView fx:id="t_pending" layoutX="142.0" layoutY="57.0" prefHeight="278.0" prefWidth="279.0">
-              <columns>
-                  <TableColumn fx:id="t_id" prefWidth="74.0" text="id" />
-                <TableColumn fx:id="t_p_patient" prefWidth="53.0" text="patient" />
-                <TableColumn fx:id="t_p_date" prefWidth="74.0" text="date" />
-                  <TableColumn fx:id="t_p_begin" prefWidth="74.0" text="begin" />
-                  <TableColumn fx:id="t_p_end" prefWidth="74.0" text="end" />
-              </columns>
-            </TableView>
-            <TextField fx:id="pending_id" layoutX="138.0" layoutY="418.0" prefHeight="25.0" prefWidth="59.0" />
-            <Label alignment="CENTER" layoutX="22.0" layoutY="422.0" prefHeight="18.0" prefWidth="98.0" style="-fx-background-color: #E5F1E2;" text="Appointment id:" textFill="#b17117" />
-            <Label alignment="CENTER" layoutX="342.0" layoutY="422.0" prefHeight="18.0" prefWidth="78.0" style="-fx-background-color: #E5F1E2;" text="New status" textAlignment="CENTER" textFill="#b17117" />
-            <Label fx:id="resultArea" layoutX="168.0" layoutY="488.0" />
-            <TextField fx:id="new_status" layoutX="433.0" layoutY="418.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="347.0" prefHeight="26.0" prefWidth="294.0" style="-fx-background-color: #E5F1E2;" text="In case you change a pending appointment, " textAlignment="CENTER" textFill="#b17117">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="373.0" prefHeight="26.0" prefWidth="358.0" style="-fx-background-color: #E5F1E2;" text=" please write in the new status box: accepted or rejected" textAlignment="CENTER" textFill="#b17117">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="b_update" layoutX="252.0" layoutY="460.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="59.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Update" textFill="#eaeaea">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
       <Button fx:id="b_logout" layoutX="806.0" layoutY="566.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Log out" textFill="#eaeaea">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="b_today_app" layoutX="64.0" layoutY="91.0" mnemonicParsing="false" text="Show today appointments" />
+      <Button fx:id="b_pending" layoutX="370.0" layoutY="91.0" mnemonicParsing="false" text="See pending appointments" />
+      <Button fx:id="b_history" layoutX="701.0" layoutY="91.0" mnemonicParsing="false" text="Show history" />
+      <AnchorPane layoutY="116.0" prefHeight="476.0" prefWidth="900.0">
+         <children>
+            <AnchorPane fx:id="p_today" layoutX="178.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="279.0">
+               <children>
+                  <TableView fx:id="t_today" layoutX="1.0" layoutY="87.0" prefHeight="200.0" prefWidth="293.0" visible="false">
+                    <columns>
+                      <TableColumn fx:id="t_start" prefWidth="98.0" text="start_time" />
+                       <TableColumn fx:id="t_end" prefWidth="75.0" text="end_time" />
+                      <TableColumn fx:id="t_patient" prefWidth="138.0" text="patient" />
+                    </columns>
+                  </TableView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-46.0" layoutY="12.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="Today's appointments" textAlignment="CENTER" textFill="#b17117">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="p_history" layoutX="178.0" layoutY="85.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="279.0">
+               <children>
+                  <TableView fx:id="t_history" layoutY="48.0" prefHeight="200.0" prefWidth="312.0" visible="false">
+                     <columns>
+                        <TableColumn fx:id="t_date" prefWidth="156.0" text="date" />
+                        <TableColumn fx:id="t_pacient" prefWidth="155.0" text="pacient" />
+                     </columns>
+                  </TableView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="  See history of appointments:" textAlignment="CENTER" textFill="#b17117">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="p_pending" layoutX="178.0" prefHeight="499.0" prefWidth="582.0">
+               <children>
+                  <TableView fx:id="t_pending" layoutX="144.0" layoutY="26.0" prefHeight="278.0" prefWidth="279.0">
+                    <columns>
+                        <TableColumn fx:id="t_id" prefWidth="74.0" text="id" />
+                      <TableColumn fx:id="t_p_patient" prefWidth="53.0" text="patient" />
+                      <TableColumn fx:id="t_p_date" prefWidth="74.0" text="date" />
+                        <TableColumn fx:id="t_p_begin" prefWidth="74.0" text="begin" />
+                        <TableColumn fx:id="t_p_end" prefWidth="74.0" text="end" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="pending_id" layoutX="138.0" layoutY="418.0" prefHeight="25.0" prefWidth="59.0" />
+                  <Label alignment="CENTER" layoutX="22.0" layoutY="422.0" prefHeight="18.0" prefWidth="98.0" style="-fx-background-color: #E5F1E2;" text="Appointment id:" textFill="#b17117" />
+                  <Label alignment="CENTER" layoutX="342.0" layoutY="422.0" prefHeight="18.0" prefWidth="78.0" style="-fx-background-color: #E5F1E2;" text="New status" textAlignment="CENTER" textFill="#b17117" />
+                  <Label fx:id="resultArea" layoutX="168.0" layoutY="488.0" />
+                  <TextField fx:id="new_status" layoutX="433.0" layoutY="418.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="347.0" prefHeight="26.0" prefWidth="294.0" style="-fx-background-color: #E5F1E2;" text="In case you change a pending appointment, " textAlignment="CENTER" textFill="#b17117">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="373.0" prefHeight="26.0" prefWidth="358.0" style="-fx-background-color: #E5F1E2;" text=" please write in the new status box: accepted or rejected" textAlignment="CENTER" textFill="#b17117">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="b_update" layoutX="254.0" layoutY="464.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="59.0" style="-fx-background-radius: 10px; -fx-border-color: black; -fx-border-radius: 10px; -fx-background-color: #b17117;" text="Update" textFill="#eaeaea">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

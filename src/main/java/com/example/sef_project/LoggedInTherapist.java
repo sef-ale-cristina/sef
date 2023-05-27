@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,6 +81,15 @@ public class LoggedInTherapist implements Initializable {
     @FXML
     private Label resultArea;
 
+    @FXML
+    private AnchorPane p_today;
+
+    @FXML
+    private AnchorPane p_history;
+
+    @FXML
+    private AnchorPane p_pending;
+
     ObservableList<Appointment> listview_app = FXCollections.observableArrayList();
 
     ObservableList<Appointment_History> listview_hist = FXCollections.observableArrayList();
@@ -96,6 +106,9 @@ public class LoggedInTherapist implements Initializable {
     }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        p_today.setVisible(false);
+        p_history.setVisible(false);
+        p_pending.setVisible(false);
 
         b_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -105,6 +118,10 @@ public class LoggedInTherapist implements Initializable {
         });
 
         b_today_app.setOnAction(event -> {
+            p_today.setVisible(true);
+            p_history.setVisible(false);
+            p_pending.setVisible(false);
+
             t_start.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBeginTime()));
             t_end.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEndTime()));
             t_patient.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPacient_username()));
@@ -135,6 +152,10 @@ public class LoggedInTherapist implements Initializable {
         });
 
         b_history.setOnAction(event -> {
+            p_today.setVisible(false);
+            p_history.setVisible(true);
+            p_pending.setVisible(false);
+
             t_date.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate()));
             t_pacient.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPacient_username()));
 
@@ -163,6 +184,11 @@ public class LoggedInTherapist implements Initializable {
         });
 
         b_pending.setOnAction(event -> {
+            p_today.setVisible(false);
+            p_history.setVisible(false);
+            p_pending.setVisible(true);
+
+
             t_id.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
             t_p_patient.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPatient_username()));
             t_p_date.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate()));
