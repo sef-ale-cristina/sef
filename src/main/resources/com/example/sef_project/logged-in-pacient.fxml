@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefgit addHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CEF5D4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sef_project.LoggedInPacient">
    <children>
       <Label fx:id="label_welcome" layoutX="251.0" layoutY="29.0" text="Welcome, pacient!" />
       <AnchorPane layoutX="329.0" layoutY="91.0" prefHeight="238.0" prefWidth="200.0">

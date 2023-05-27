@@ -17,12 +17,12 @@
             <Image url="@../../../pictures/daisy_th.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="l_welcome" alignment="TOP_CENTER" layoutX="241.0" layoutY="27.0" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #E5F1E2;" text="Welcome, therapist!" textAlignment="CENTER" textFill="#b17117">
+      <Label fx:id="l_welcome" alignment="TOP_CENTER" layoutX="244.0" layoutY="14.0" prefHeight="35.0" prefWidth="411.0" style="-fx-background-color: #E5F1E2;" text="Welcome, therapist!" textAlignment="CENTER" textFill="#b17117">
          <font>
             <Font name="Book Antiqua Bold" size="38.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="33.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;">
+      <AnchorPane layoutX="33.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0">
          <children>
             <TableView fx:id="t_today" layoutX="1.0" layoutY="87.0" prefHeight="200.0" prefWidth="293.0" visible="false">
               <columns>
@@ -31,14 +31,14 @@
                 <TableColumn fx:id="t_patient" prefWidth="138.0" text="patient" />
               </columns>
             </TableView>
-            <Button fx:id="b_today_app" layoutX="31.0" layoutY="14.0" mnemonicParsing="false" text="Show today appointments" />
+            <Button fx:id="b_today_app" layoutX="25.0" layoutY="8.0" mnemonicParsing="false" text="Show today appointments" />
          </children>
       </AnchorPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="652.0" layoutY="117.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="  See history of appointments:" textAlignment="CENTER" textFill="#b17117">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <AnchorPane layoutX="652.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;">
+      <AnchorPane layoutX="652.0" layoutY="152.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="218.0">
          <children>
             <TableView fx:id="t_history" layoutY="48.0" prefHeight="200.0" prefWidth="312.0" visible="false">
                <columns>
@@ -46,7 +46,7 @@
                   <TableColumn fx:id="t_pacient" prefWidth="155.0" text="pacient" />
                </columns>
             </TableView>
-            <Button fx:id="b_history" layoutX="75.0" layoutY="9.0" mnemonicParsing="false" text="Show history" />
+            <Button fx:id="b_history" layoutX="67.0" layoutY="1.0" mnemonicParsing="false" text="Show history" />
          </children>
       </AnchorPane>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="117.0" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #E5F1E2;" text="Today's appointments" textAlignment="CENTER" textFill="#b17117">
@@ -56,7 +56,7 @@
       </Label>
       <AnchorPane layoutX="166.0" layoutY="70.0" prefHeight="376.0" prefWidth="567.0">
          <children>
-            <Button fx:id="b_pending" layoutX="202.0" layoutY="22.0" mnemonicParsing="false" text="See pending appointments" />
+            <Button fx:id="b_pending" layoutX="212.0" layoutY="23.0" mnemonicParsing="false" text="See pending appointments" />
             <TableView fx:id="t_pending" layoutX="142.0" layoutY="57.0" prefHeight="278.0" prefWidth="279.0">
               <columns>
                   <TableColumn fx:id="t_id" prefWidth="74.0" text="id" />
