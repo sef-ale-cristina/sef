@@ -170,16 +170,11 @@ public class LoggedInPacient implements Initializable {
 
                             String username = cb_therapist.getValue();
 
-                            String sql = "SELECT * FROM appointment WHERE username = '" + username + "'";
+                            String sql = "SELECT * FROM appointments";
                             Statement s = cn1.createStatement();
                             ResultSet r = s.executeQuery(sql);
 
-                            while(r.next()) {
-                                days = days.concat(r.getString("days"));
-                                begin_time = begin_time.concat(r.getString("start_time"));
-                                end_time = end_time.concat(r.getString("end_time"));
-                            }
-                            System.out.println(days);
+
                         } catch (SQLException e) {
                             throw new RuntimeException(e);
                         }
