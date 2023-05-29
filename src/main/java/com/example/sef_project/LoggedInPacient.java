@@ -1,5 +1,7 @@
 package com.example.sef_project;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javafx.application.Application;
@@ -20,10 +22,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableRow;
 import org.w3c.dom.events.MouseEvent;
@@ -33,6 +33,9 @@ import static com.mchange.v2.codegen.bean.BeangenUtils.capitalize;
 public class LoggedInPacient implements Initializable {
     @FXML
     private TableView<Therapist> table_therapists;
+
+    @FXML
+    private Label l_confirm;
 
     @FXML
     private Label selected_th;
@@ -183,12 +186,24 @@ public class LoggedInPacient implements Initializable {
                 throw new RuntimeException(e);
             }
 
+            System.out.println(LocalDate.now());
+
             date_appointment.setOnAction(datePickerEvent -> {
                 LocalDate localDate = date_appointment.getValue();
+                LocalDate currentDate = LocalDate.now();
+
+                int compare = localDate.compareTo(currentDate);
+
+                if(compare<0) {
+                    System.out.println("The day you want to select has already passed!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("The day you want to select has already passed!");
+                    alert.show();
+                }
                 String week_day = localDate.getDayOfWeek().toString();
                 week_day = week_day.toLowerCase();
                 week_day = capitalize(week_day);
-                //System.out.println(week_day);
+                System.out.println(week_day);
 
                 System.out.println(days.contains(week_day));
                 if(days.contains(week_day)==false) {
@@ -223,7 +238,8 @@ public class LoggedInPacient implements Initializable {
 
                         b_schedule.setOnAction(scheduleEvent -> {
                             try {
-                                Appointment_Creation.insertAppointment(pacient.getUsername(), therapist_username, localDate, begin, end);
+                                Appointment_Creation.insertAppointment(therapist_username, pacient.getUsername(), localDate, begin, end);
+                                l_confirm.setText("The request has been created");
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
                             } catch (ClassNotFoundException e) {
