@@ -76,7 +76,7 @@ public class LoggedInTherapist implements Initializable {
     private TextField pending_id;
 
     @FXML
-    private TextField new_status;
+    private ComboBox<String> c_request;
 
     @FXML
     private Label resultArea;
@@ -134,7 +134,7 @@ public class LoggedInTherapist implements Initializable {
 
                 String therapist_username = therapist.getUsername();
 
-                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND date = CAST( NOW() AS Date )";
+                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND date = CAST( NOW() AS Date ) AND status = 'accepted'";
                 Statement s = cn1.createStatement();
                 ResultSet r = s.executeQuery(sql);
 
@@ -167,7 +167,7 @@ public class LoggedInTherapist implements Initializable {
 
                 String therapist_username = therapist.getUsername();
 
-                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND date < CAST( NOW() AS Date )";
+                String sql = "SELECT * FROM appointments WHERE therapist_username = '" + therapist_username + "' AND date < CAST( NOW() AS Date ) AND status = 'accepted'";
                 Statement s = cn1.createStatement();
                 ResultSet r = s.executeQuery(sql);
 
@@ -218,6 +218,8 @@ public class LoggedInTherapist implements Initializable {
                 }
 
                 t_pending.setItems(listview_pending);
+
+                c_request.getItems().addAll("accepted", "rejected");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -228,7 +230,7 @@ public class LoggedInTherapist implements Initializable {
     @FXML
     private void updateStatus (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
-            Appointment_Pending.updateStatus(Integer.parseInt(pending_id.getText()), new_status.getText());
+            Appointment_Pending.updateStatus(Integer.parseInt(pending_id.getText()), c_request.getValue());
             resultArea.setText("Status has been updated for, appointment id: " + pending_id.getText() + "\n");
         } catch (SQLException e) {
             e.printStackTrace();
